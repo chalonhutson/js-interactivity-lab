@@ -20,20 +20,22 @@ function addMovie(event){
     
     document.querySelector("ul").appendChild(movie)
     inputField.value = ""
+    message.textContent = "Movie added."
+    revealMessage()
 }
 
 function deletemovie(event){
     event.target.parentNode.remove()
-    message.textContent = "Movie Deleted"
+    message.textContent = `${event.target.previousElementSibling.textContent} deleted.`
     revealMessage()
 }
 
 function crossOffMovie(event){
     event.target.classList.toggle("checked")
     if (event.target.classList.contains("checked") === true){
-        message.textContent = "Movie watched."
+        message.textContent = `${event.target.textContent} watched.`
     }else {
-        message.textContent = "Movie added back!"
+        message.textContent = `${event.target.textContent} added back.`
     }
     revealMessage()
 }
